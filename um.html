@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>我們的故事 💖 Love Story</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+
     <style>
-        /* --- CSS 樣式開始 --- */
         :root {
             --color-primary: #B23A48;
             --color-accent: #F7CACA;
@@ -31,7 +32,7 @@
             overflow-x: hidden;
         }
 
-        /* 導航欄 */
+        /* Header */
         .header {
             background-color: rgba(255, 255, 255, 0.95);
             padding: 10px 5%;
@@ -62,9 +63,10 @@
         /* Hero */
         #hero {
             min-height: 100vh;
-            background-image: url('https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/1.jpg');
+            background-image: url('https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/1.jpg?w=1600&quality=80');
             background-size: cover;
             background-position: center;
+            background-attachment: scroll; /* 手機最佳化 */
             color: white;
             position: relative;
             padding-top: 120px;
@@ -79,20 +81,18 @@
             background-color: rgba(0, 0, 0, 0.4);
         }
 
+        #hero h2, #hero p {
+            position: relative;
+            z-index: 1;
+        }
+
         #hero h2 {
             font-family: var(--font-script);
             font-size: 3em;
             margin-bottom: 15px;
-            z-index: 1;
-            position: relative;
         }
 
-        #hero p {
-            z-index: 1;
-            position: relative;
-        }
-
-        /* 計時器 */
+        /* Timer */
         .timer-container {
             display: flex;
             flex-wrap: wrap;
@@ -115,7 +115,7 @@
             font-weight: bold;
         }
 
-        /* Future count */
+        /* Future Count */
         #future-count {
             background-color: var(--color-accent);
             padding: 50px 5%;
@@ -171,8 +171,58 @@
             text-align: center;
             background-color: #EFEFEF;
         }
+
+        /* Mobile RWD */
+        @media (max-width: 768px) {
+
+            .header h1 {
+                font-size: 1.4em;
+            }
+
+            .nav a {
+                font-size: 0.9em;
+                margin-left: 8px;
+            }
+
+            #hero {
+                padding-top: 90px;
+                min-height: 90vh;
+            }
+
+            #hero h2 {
+                font-size: 2em;
+                padding: 0 15px;
+            }
+
+            #hero p {
+                padding: 0 15px;
+                font-size: 1em;
+            }
+
+            .timer-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 85%;
+                margin: auto;
+            }
+
+            .timer-box {
+                padding: 10px;
+                font-size: 1em;
+            }
+
+            .timer-value {
+                font-size: 1.6em;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="header">
@@ -191,10 +241,10 @@
 
         <p style="margin-top:20px;">我們在一起已經：</p>
         <div class="timer-container">
-            <div class="timer-box"><span class="timer-value" id="years">0</span><span>年</span></div>
-            <div class="timer-box"><span class="timer-value" id="days">0</span><span>天</span></div>
-            <div class="timer-box"><span class="timer-value" id="hours">0</span><span>時</span></div>
-            <div class="timer-box"><span class="timer-value" id="minutes">0</span><span>分</span></div>
+            <div class="timer-box"><span class="timer-value" id="years">0</span>年</div>
+            <div class="timer-box"><span class="timer-value" id="days">0</span>天</div>
+            <div class="timer-box"><span class="timer-value" id="hours">0</span>時</div>
+            <div class="timer-box"><span class="timer-value" id="minutes">0</span>分</div>
         </div>
     </section>
 
@@ -212,9 +262,9 @@
         <div class="timeline-item">
             <div class="timeline-date">2023.12.25</div>
             <div class="timeline-content">
-                <h3>初次見面</h3>
+                <h3>初次聖誕</h3>
                 <p>那個充滿聖誕氣氛的一天，我們的故事開始了。</p>
-                <img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/4.jpg">
+                <img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/4.jpg?w=1200&quality=80" loading="lazy">
             </div>
         </div>
 
@@ -223,16 +273,16 @@
             <div class="timeline-content">
                 <h3>bb是唯一</h3>
                 <p>從此你是我的唯一。</p>
-                <img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/17.jpg">
+                <img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/17.jpg?w=1200&quality=80" loading="lazy">
             </div>
         </div>
 
         <div class="timeline-item">
             <div class="timeline-date">2024.01.17</div>
             <div class="timeline-content">
-                <h3>第一次旅行</h3>
+                <h3>第N次旅行</h3>
                 <p>一起看過的風景，都是我們愛的見證。</p>
-                <img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/8.jpg">
+                <img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/8.jpg?w=1200&quality=80" loading="lazy">
             </div>
         </div>
 
@@ -241,12 +291,12 @@
     <section id="gallery">
         <h2 class="section-title">美好瞬間</h2>
         <div class="gallery-grid">
-            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/11.jpg" loading="lazy"></div>
-            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/13.jpg" loading="lazy"></div>
-            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/14.jpg" loading="lazy"></div>
-            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/15.jpg" loading="lazy"></div>
-            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/16.jpg" loading="lazy"></div>
-            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/10.jpg" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/11.jpg?w=800&quality=80" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/13.jpg?w=800&quality=80" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/14.jpg?w=800&quality=80" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/15.jpg?w=800&quality=80" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/16.jpg?w=800&quality=80" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/10.jpg?w=800&quality=80" loading="lazy"></div>
         </div>
     </section>
 
@@ -263,7 +313,6 @@
     </footer>
 
 <script>
-    // 交往日期
     const startDate = new Date("2023-11-30T00:00:00");
     const futureCountDate = new Date("2023-11-30T00:00:00");
 
@@ -278,6 +327,7 @@
         afterYears.setFullYear(startDate.getFullYear() + years);
 
         let diffMs = now - afterYears;
+
         const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
         diffMs -= days * (1000 * 60 * 60 * 24);
 
@@ -291,6 +341,7 @@
         document.getElementById("hours").innerText = hours;
         document.getElementById("minutes").innerText = minutes;
 
+        // Future Day Counter
         const futureDiff = now - futureCountDate;
         const futureDays = Math.floor(futureDiff / (1000 * 60 * 60 * 24));
         document.getElementById("future-day-count").innerText = futureDays;
