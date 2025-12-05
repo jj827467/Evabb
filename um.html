@@ -20,11 +20,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent; /* 移除手機點擊高亮 */
-        }
-
-        html {
-            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -32,7 +28,7 @@
             color: var(--color-text);
             background-color: var(--color-background);
             line-height: 1.6;
-            overflow-x: hidden; /* 防止水平滾動 */
+            overflow-x: hidden;
         }
 
         /* 導航欄 */
@@ -47,7 +43,7 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(5px); /* 模糊背景效果 */
+            backdrop-filter: blur(5px);
         }
 
         .header h1 {
@@ -56,63 +52,24 @@
             color: var(--color-primary);
         }
 
-        .nav {
-            display: flex;
-            gap: 15px;
-        }
-
         .nav a {
             color: var(--color-primary);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95em;
-            transition: color 0.3s;
+            margin-left: 15px;
         }
 
-        /* 手機端導航調整 */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                padding: 10px 0;
-            }
-            .nav {
-                margin-top: 5px;
-                gap: 15px;
-            }
-            .nav a {
-                font-size: 0.9em;
-            }
-        }
-
-        /* 區塊通用 */
-        section {
-            padding: 60px 5%;
-            min-height: auto; /* 手機上不強制滿屏 */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .section-title {
-            font-family: var(--font-script);
-            font-size: 2.5em;
-            color: var(--color-primary);
-            margin-bottom: 30px;
-            line-height: 1.2;
-        }
-
-        /* 首頁 Hero */
+        /* Hero */
         #hero {
-            min-height: 100vh; /* 首頁保持滿屏 */
-            background-image: url('./static/images/1.jpg'); 
+            min-height: 100vh;
+            background-image: url('https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/1.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             position: relative;
-            padding-top: 120px; /* 避開導航欄 */
+            padding-top: 120px;
             padding-bottom: 50px;
+            text-align: center;
         }
 
         #hero::before {
@@ -127,26 +84,21 @@
             font-size: 3em;
             margin-bottom: 15px;
             z-index: 1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            padding: 0 10px;
+            position: relative;
         }
 
         #hero p {
-            font-size: 1.1em;
-            margin-bottom: 30px;
             z-index: 1;
-            padding: 0 20px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            position: relative;
         }
 
         /* 計時器 */
         .timer-container {
             display: flex;
-            flex-wrap: wrap; /* 允許換行 */
+            flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
             z-index: 1;
-            width: 100%;
         }
 
         .timer-box {
@@ -154,172 +106,71 @@
             color: var(--color-primary);
             padding: 15px;
             border-radius: 10px;
-            min-width: 80px; /* 手機上更小 */
-            flex: 1 1 80px; /* 彈性縮放 */
-            max-width: 120px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            min-width: 80px;
+            text-align: center;
         }
 
         .timer-value {
             font-size: 1.8em;
             font-weight: bold;
-            display: block;
         }
 
-        .timer-label {
-            font-size: 0.8em;
-        }
-
-        /* 未來計數區 */
+        /* Future count */
         #future-count {
             background-color: var(--color-accent);
-            padding: 60px 5%;
-        }
-        
-        #future-count h3 {
-             font-size: 1.5em;
-             margin-bottom: 15px;
+            padding: 50px 5%;
+            text-align: center;
         }
 
-        #future-count .day-count {
-            font-size: 4em; /* 手機字體調整 */
+        .day-count {
+            font-size: 3em;
             font-weight: bold;
             color: var(--color-primary);
-            margin: 10px 0;
-            display: block;
-            animation: pulse 1.5s infinite alternate;
         }
 
-        /* 時間軸 */
-        #timeline { background-color: #F8F8F8; }
+        /* Timeline */
+        #timeline {
+            background-color: #F8F8F8;
+            padding: 60px 5%;
+            text-align: center;
+        }
 
         .timeline-item {
-            display: flex;
-            align-items: center;
-            margin: 30px 0;
-            width: 100%;
-            max-width: 800px;
-            flex-direction: column; /* 手機默認垂直排列 */
-        }
-
-        .timeline-date {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: var(--color-primary);
-            margin-bottom: 15px;
-            background: #fff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .timeline-content {
-            width: 100%;
-            padding: 20px;
-            border-radius: 12px;
-            background-color: white;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            margin: 40px 0;
         }
 
         .timeline-content img {
             width: 100%;
-            height: auto;
             border-radius: 8px;
             margin-top: 15px;
         }
 
-        /* 電腦版時間軸恢復左右交替 */
-        @media (min-width: 769px) {
-            .timeline-item {
-                flex-direction: row;
-                margin: 50px 0;
-            }
-            .timeline-item:nth-child(even) {
-                flex-direction: row-reverse;
-                text-align: right;
-            }
-            .timeline-date {
-                width: 150px;
-                margin-bottom: 0;
-                background: none;
-                box-shadow: none;
-            }
-            .timeline-content {
-                margin: 0 30px;
-            }
-        }
-
-        /* 照片牆 */
+        /* Gallery */
         #gallery .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 手機預設2列 */
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
-            width: 100%;
-            max-width: 1200px;
-        }
-        
-        @media (min-width: 768px) {
-            #gallery .gallery-grid {
-                grid-template-columns: repeat(3, 1fr); /* 平板/電腦3列 */
-                gap: 20px;
-            }
+            padding: 20px;
         }
 
-        #gallery .gallery-item img {
+        #gallery img {
             width: 100%;
-            height: 150px; /* 手機高度 */
+            height: 150px;
             object-fit: cover;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        @media (min-width: 768px) {
-            #gallery .gallery-item img {
-                height: 300px; /* 電腦高度 */
-            }
-        }
-
-        /* 諾言區 */
+        /* Vows */
         .vows-content {
-            width: 100%;
-            padding: 30px 20px;
-            font-size: 1.2em; /* 手機字體稍小 */
-            text-align: left;
-        }
-
-        @media (min-width: 768px) {
-            .vows-content {
-                padding: 50px;
-                font-size: 1.5em;
-            }
-        }
-
-        /* 特效 */
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
-        }
-
-        .heart {
-            position: fixed;
-            z-index: 9999;
-            pointer-events: none;
-            color: var(--color-primary);
-            font-size: 20px;
-            animation: heart-fall 1.5s ease-out forwards;
-        }
-
-        @keyframes heart-fall {
-            0% { opacity: 1; transform: translate(0, 0) scale(0.5); }
-            100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(1.2); }
+            padding: 30px;
+            font-size: 1.2em;
         }
 
         .footer {
             padding: 20px;
+            text-align: center;
             background-color: #EFEFEF;
-            font-size: 0.8em;
         }
-        /* --- CSS 樣式結束 --- */
     </style>
 </head>
 <body>
@@ -338,34 +189,32 @@
         <h2>我們的三週年到啦!!!❤️❤️❤️</h2>
         <p>「愛是我們一起走過的路。」</p>
 
-        <p style="margin-top:20px; font-size: 1em;">我們在一起已經：</p>
+        <p style="margin-top:20px;">我們在一起已經：</p>
         <div class="timer-container">
-            <div class="timer-box"><span class="timer-value" id="years">0</span><span class="timer-label">年</span></div>
-            <div class="timer-box"><span class="timer-value" id="days">0</span><span class="timer-label">天</span></div>
-            <div class="timer-box"><span class="timer-value" id="hours">0</span><span class="timer-label">時</span></div>
-            <div class="timer-box"><span class="timer-value" id="minutes">0</span><span class="timer-label">分</span></div>
+            <div class="timer-box"><span class="timer-value" id="years">0</span><span>年</span></div>
+            <div class="timer-box"><span class="timer-value" id="days">0</span><span>天</span></div>
+            <div class="timer-box"><span class="timer-value" id="hours">0</span><span>時</span></div>
+            <div class="timer-box"><span class="timer-value" id="minutes">0</span><span>分</span></div>
         </div>
     </section>
 
     <section id="future-count">
-        <h2 class="section-title" style="font-size: 2em;">我們的未來已展開</h2>
-        <div style="background: rgba(255,255,255,0.6); padding: 20px; border-radius: 15px; display: inline-block;">
-            <p>從 <b>2024.11.30</b> 那天起</p>
-            <p>我們共同經歷了：</p>
-            <span class="day-count" id="future-day-count">0</span>
-            <p>個美好的日子</p>
-        </div>
+        <h2 class="section-title">我們的未來已展開</h2>
+        <p>從 <b>2023.11.30</b> 那天起</p>
+        <p>我們共同經歷了：</p>
+        <span class="day-count" id="future-day-count">0</span>
+        <p>個美好的日子</p>
     </section>
 
     <section id="timeline">
         <h2 class="section-title">里程碑</h2>
-        
+
         <div class="timeline-item">
             <div class="timeline-date">2023.12.25</div>
             <div class="timeline-content">
                 <h3>初次見面</h3>
                 <p>那個充滿聖誕氣氛的一天，我們的故事開始了。</p>
-                <img src="./static/images/4.jpg" alt="Story Image">
+                <img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/4.jpg">
             </div>
         </div>
 
@@ -374,7 +223,7 @@
             <div class="timeline-content">
                 <h3>bb是唯一</h3>
                 <p>從此你是我的唯一。</p>
-                <img src="./static/images/17.jpg" alt="Story Image">
+                <img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/17.jpg">
             </div>
         </div>
 
@@ -383,29 +232,29 @@
             <div class="timeline-content">
                 <h3>第一次旅行</h3>
                 <p>一起看過的風景，都是我們愛的見證。</p>
-                <img src="./static/images/8.jpg" alt="Story Image">
+                <img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/8.jpg">
             </div>
         </div>
+
     </section>
 
     <section id="gallery">
         <h2 class="section-title">美好瞬間</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="./static/images/11.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="./static/images/13.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="./static/images/14.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="./static/images/15.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="./static/images/16.jpg" loading="lazy"></div>
-            <div class="gallery-item"><img src="./static/images/10.jpg" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/11.jpg" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/13.jpg" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/14.jpg" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/15.jpg" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/16.jpg" loading="lazy"></div>
+            <div><img src="https://cdn.jsdelivr.net/gh/jj827467/Evabb/static/images/10.jpg" loading="lazy"></div>
         </div>
     </section>
 
     <section id="vows" style="background-color: var(--color-accent);">
         <h2 class="section-title">給你的話</h2>
-        <div class="vows-content" style="background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <div class="vows-content" style="background: white; border-radius: 10px;">
             <p>最愛的恩恩豬</p>
-            <p>未來的路還很長，但我只想與你同行。無論晴雨，我都會牽著你的手。</p>
-            <br>
+            <p>未來的路還很長，但我只想與JJ同行。</p>
         </div>
     </section>
 
@@ -414,56 +263,33 @@
     </footer>
 
 <script>
-    // 你們的交往日期（正確版本）
+    // 交往日期
     const startDate = new Date("2023-11-30T00:00:00");
-
-    // 未來天數計算也從同一天開始
     const futureCountDate = new Date("2023-11-30T00:00:00");
 
     function updateTimers() {
         const now = new Date();
 
-        /* -------------------------
-           精準計算 “相處了多久”
-        ------------------------- */
-
-        // === 計算幾年 ===
         let years = now.getFullYear() - startDate.getFullYear();
-        const anniversaryThisYear = new Date(
-            now.getFullYear(),
-            startDate.getMonth(),
-            startDate.getDate()
-        );
+        const anniversaryThisYear = new Date(now.getFullYear(), startDate.getMonth(), startDate.getDate());
+        if (now < anniversaryThisYear) years--;
 
-        // 如果今年的紀念日還沒到 → 年份要扣1
-        if (now < anniversaryThisYear) {
-            years--;
-        }
-
-        // === 計算扣掉滿年後的剩餘天數 ===
         let afterYears = new Date(startDate);
         afterYears.setFullYear(startDate.getFullYear() + years);
 
         let diffMs = now - afterYears;
-
         const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
         diffMs -= days * (1000 * 60 * 60 * 24);
 
-        // === 時、分 ===
         const hours = Math.floor(diffMs / (1000 * 60 * 60));
         diffMs -= hours * (1000 * 60 * 60);
 
         const minutes = Math.floor(diffMs / (1000 * 60));
 
-        // === 更新畫面 ===
         document.getElementById("years").innerText = years;
         document.getElementById("days").innerText = days;
         document.getElementById("hours").innerText = hours;
         document.getElementById("minutes").innerText = minutes;
-
-        /* -------------------------
-           未來天數計算（總共過了幾天）
-        ------------------------- */
 
         const futureDiff = now - futureCountDate;
         const futureDays = Math.floor(futureDiff / (1000 * 60 * 60 * 24));
