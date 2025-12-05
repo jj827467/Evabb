@@ -361,25 +361,25 @@
         <h2 class="section-title">里程碑</h2>
         
         <div class="timeline-item">
-            <div class="timeline-date">2023.05.20</div>
+            <div class="timeline-date">2023.12.25</div>
             <div class="timeline-content">
                 <h3>初次見面</h3>
-                <p>那個充滿咖啡香氣的午後，我們的故事開始了。</p>
+                <p>那個充滿聖誕氣氛的一天，我們的故事開始了。</p>
                 <img src="./static/images/4.jpg" alt="Story Image">
             </div>
         </div>
 
         <div class="timeline-item">
-            <div class="timeline-date">2023.07.15</div>
+            <div class="timeline-date">2024.01.01</div>
             <div class="timeline-content">
                 <h3>bb是唯一</h3>
                 <p>從此你是我的唯一。</p>
-                <img src="./static/images/12.jpg" alt="Story Image">
+                <img src="./static/images/17.jpg" alt="Story Image">
             </div>
         </div>
 
         <div class="timeline-item">
-            <div class="timeline-date">2024.01.01</div>
+            <div class="timeline-date">2024.01.17</div>
             <div class="timeline-content">
                 <h3>第一次旅行</h3>
                 <p>一起看過的風景，都是我們愛的見證。</p>
@@ -413,74 +413,66 @@
         <p>© 2025 Love Story.</p>
     </footer>
 
-    <script>
-        // 設定日期
-        const startDate = new Date(2023, 4, 20); // 2023年5月20日
-        const futureCountDate = new Date('2024-11-30T00:00:00');
+<script>
+    // 你們的交往日期（正確版本）
+    const startDate = new Date("2023-11-30T00:00:00");
 
-        function updateTimers() {
-            const now = new Date();
-            
-            // 過去計時
-            const diff = now - startDate;
-            const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const years = Math.floor(totalDays / 365.25);
-            const days = Math.floor(totalDays % 365.25);
-            const hours = now.getHours();
-            const minutes = now.getMinutes();
+    // 未來天數計算也從同一天開始
+    const futureCountDate = new Date("2023-11-30T00:00:00");
 
-            document.getElementById('years').innerText = years;
-            document.getElementById('days').innerText = days;
-            document.getElementById('hours').innerText = hours;
-            document.getElementById('minutes').innerText = minutes;
+    function updateTimers() {
+        const now = new Date();
 
-            // 未來計數 (2024/11/30起)
-            const futureDiff = now.getTime() - futureCountDate.getTime();
-            const futureDays = Math.floor(futureDiff / (1000 * 60 * 60 * 24));
-            document.getElementById('future-day-count').innerText = futureDays;
+        /* -------------------------
+           精準計算 “相處了多久”
+        ------------------------- */
+
+        // === 計算幾年 ===
+        let years = now.getFullYear() - startDate.getFullYear();
+        const anniversaryThisYear = new Date(
+            now.getFullYear(),
+            startDate.getMonth(),
+            startDate.getDate()
+        );
+
+        // 如果今年的紀念日還沒到 → 年份要扣1
+        if (now < anniversaryThisYear) {
+            years--;
         }
 
-        setInterval(updateTimers, 1000);
-        updateTimers();
+        // === 計算扣掉滿年後的剩餘天數 ===
+        let afterYears = new Date(startDate);
+        afterYears.setFullYear(startDate.getFullYear() + years);
 
-        // 整合滑鼠與觸控特效
-        function createHeart(x, y) {
-            const heart = document.createElement('span');
-            heart.className = 'heart';
-            heart.innerHTML = '💖';
-            heart.style.left = x + 'px';
-            heart.style.top = y + 'px';
-            
-            // 隨機飄落方向
-            const tx = (Math.random() - 0.5) * 100;
-            const ty = Math.random() * 100 + 50;
-            heart.style.setProperty('--tx', `${tx}px`);
-            heart.style.setProperty('--ty', `${ty}px`);
+        let diffMs = now - afterYears;
 
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 1500);
-        }
+        const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        diffMs -= days * (1000 * 60 * 60 * 24);
 
-        // 電腦滑鼠移動
-        let lastTime = 0;
-        document.addEventListener('mousemove', (e) => {
-            const now = Date.now();
-            if (now - lastTime > 50) { // 限制產生頻率
-                createHeart(e.clientX, e.clientY);
-                lastTime = now;
-            }
-        });
+        // === 時、分 ===
+        const hours = Math.floor(diffMs / (1000 * 60 * 60));
+        diffMs -= hours * (1000 * 60 * 60);
 
-        // 手機觸控滑動
-        document.addEventListener('touchmove', (e) => {
-            const now = Date.now();
-            if (now - lastTime > 50) {
-                const touch = e.touches[0];
-                createHeart(touch.clientX, touch.clientY);
-                lastTime = now;
-            }
-        }, { passive: true });
+        const minutes = Math.floor(diffMs / (1000 * 60));
 
-    </script>
+        // === 更新畫面 ===
+        document.getElementById("years").innerText = years;
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+
+        /* -------------------------
+           未來天數計算（總共過了幾天）
+        ------------------------- */
+
+        const futureDiff = now - futureCountDate;
+        const futureDays = Math.floor(futureDiff / (1000 * 60 * 60 * 24));
+        document.getElementById("future-day-count").innerText = futureDays;
+    }
+
+    updateTimers();
+    setInterval(updateTimers, 1000);
+</script>
+
 </body>
 </html>
